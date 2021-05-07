@@ -1,23 +1,58 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React, { useEffect } from "react";
+import WebcamCapture from "./components/WebcamCapture";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Preview from "./components/Preview";
+import Chat from "./components/Chats";
+import ChatView from "./components/ChatView";
+import { useDispatch, useSelector } from "react-redux";
+import LogIn from "./components/LogIn";
+import { auth } from "./firebase/FireBase";
+import { loginUser, logoutUser } from "./redux/actions/authAction";
+import "./css/App.css";
 function App() {
+  const user = useSelector((state) => state.auth.user);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    auth.onAuthStateChanged((authUser) => {
+      if (authUser) {
+        dispatch(
+          loginUser({
+            username: authUser.user.displayName,
+            profilePic: authUser.user.photoURL,
+            id: authUser.user.uid,
+          })
+        );
+      } else {
+        dispatch(logoutUser);
+      }
+    });
+  }, []);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="app-body">
+        <Router>
+          {user ? (
+            <Switch>
+              {" "}
+              <Route exact path="/">
+                <WebcamCapture />
+              </Route>
+              <Route exact path="/preview">
+                <Preview />
+              </Route>
+              <Route exact path="/chats">
+                <Chat />
+              </Route>
+              <Route exact path="/chats/view">
+                <ChatView />
+              </Route>
+            </Switch>
+          ) : (
+            <LogIn />
+          )}
+        </Router>{" "}
+      </div>
     </div>
   );
 }

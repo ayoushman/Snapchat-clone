@@ -1,0 +1,28 @@
+.WebcamCapture{
+    position: relative;
+    border-radius: 10px;
+    text-align: center;
+
+}
+.webcam{
+    border-radius: 10px;
+}
+
+.click-btn{
+   
+}
+
+.webcam-capture-btn{
+    color: white;
+    font-size: 3rem;
+    position: absolute;
+    bottom: 1rem;
+   text-align: center;
+   left: 50%;
+   right: 50%;
+  transform:  translate(-50% , -50%);
+  transition: all 0.3s ease-in-out;
+
+}
+
+

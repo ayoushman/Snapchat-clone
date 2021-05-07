@@ -1,0 +1,48 @@
+.login{
+    display: flex;
+    padding: 3rem;
+    justify-content: center;
+    align-items: center;
+ 
+
+}
+
+.login-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.login-img{
+height: 10rem;
+margin-bottom: 2rem;
+margin-top: 2rem;
+
+object-fit: fill;
+
+}
+
+.signIn-btn{
+    outline: none;
+    font-size: 1rem;
+    color: rgb(0, 0, 0);
+    padding: 5px;
+    width: fit-content;
+    background-color: white;
+    font-weight: bolder;
+  border-color: black;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-icon{
+color: yellow;
+margin-right: 1rem;
+}
+
+.signIn-btn:hover{
+    transform: scale(1.02);
+    background-color: rgb(219, 204, 204);
+
+}

@@ -15,7 +15,8 @@ const Preview = () => {
   const dispatch = useDispatch();
 
   const CameraImage = useSelector((state) => state.cameraImage.image);
-
+  const userName = useSelector((state) => state.auth.user.username);
+  const profilePic = useSelector((state) => state.auth.user.profilePic);
   const history = useHistory();
 
   const ClearImage = () => {
@@ -42,7 +43,8 @@ const Preview = () => {
           .then((url) => {
             db.collection("posts").add({
               imageURL: url,
-              userName: "Ayushman",
+              userName: { userName },
+              profilePic: { profilePic },
               read: false,
               timestamp: firebase.firestore.FieldValue.serverTimestamp(),
             });

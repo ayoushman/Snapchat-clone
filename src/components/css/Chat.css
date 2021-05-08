@@ -1,0 +1,19 @@
+.chat-holder{
+    display: flex;
+    justify-content: space-evenly;
+
+}
+
+.profilepic{
+    border-radius: 100%;
+    height: 2rem;
+    margin: 20px;
+}
+
+.name-head{
+margin: 20px;
+}
+
+.data-para{
+    margin: 20px;
+}

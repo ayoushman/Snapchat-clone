@@ -28,17 +28,15 @@ function WebcamCapture() {
 
   return (
     <div className="WebcamCapture">
-      <div className="webcam ">
-        <WebCam
-          className="webcam"
-          audio={false}
-          height={videoConstraints.height}
-          ref={WebcamRef}
-          screenshotFormat="image/jpeg"
-          width={videoConstraints.width}
-          videoConstraints={videoConstraints}
-        />
-      </div>
+      <WebCam
+        className="webcam"
+        audio={false}
+        height={videoConstraints.height}
+        ref={WebcamRef}
+        screenshotFormat="image/jpeg"
+        width={videoConstraints.width}
+        videoConstraints={videoConstraints}
+      />
 
       <RadioButtonUncheckedIcon
         className="webcam-capture-btn"
